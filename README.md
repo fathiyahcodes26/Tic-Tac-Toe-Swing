@@ -2,41 +2,50 @@
 
 ## Student Information
 
-* **Name:** Fathiyah Putri Riyanto
-* **Student ID:** [Your Student ID]
-* **Class:** A
-* **Course:** ES234211 – Programming Fundamental
+| Field          | Information            |
+| -------------- | ---------------------- |
+| **Name**       | Fathiyah Putri Riyanto |
+| **Student ID** | 5026251XXX             |
+| **Class**      | A                      |
 
 ---
 
-## Project Description
+# Project Description
 
-This project is a Java Swing-based Tic-Tac-Toe game developed as an individual project for the Programming Fundamental course. The application integrates a graphical user interface (GUI), user authentication using a relational database, game logic, player statistics management, and a leaderboard that displays the Top 5 scorers.
-
-The project applies fundamental programming concepts, including simple Object-Oriented Programming (OOP), Java Swing for GUI development, JDBC for database connectivity, and SQL for data storage and retrieval.
+This project is a simple Tic-Tac-Toe game developed using Java Swing as the graphical user interface. The application includes a login system connected to a PostgreSQL database, game statistics tracking, and a Top 5 leaderboard. The player uses the symbol **X** while the computer plays as **O**. After each game, the player's statistics are automatically updated and stored in the database.
 
 ---
 
-## Features
+# Features
 
-* User login with username and password authentication
-* Interactive Tic-Tac-Toe game using Java Swing
-* Automatic computer opponent
-* Win, lose, and draw detection
-* Player statistics (wins, losses, draws, and score)
-* Top 5 leaderboard displayed using JTable
-* Database integration using JDBC
-* Navigation between Login, Main Menu, Game, Statistics, and Leaderboard windows
+* Login using PostgreSQL database
+* Play Tic-Tac-Toe against a computer opponent
+* Automatic detection of win, lose, and draw conditions
+* Record player statistics (wins, losses, draws, and score)
+* Score calculation:
+
+  * Win = +10 points
+  * Draw = +3 points
+  * Lose = +0 points
+* Display personal statistics
+* Display Top 5 scorers using JTable
+* Store all player data in a single PostgreSQL table
 
 ---
 
-## Database
+# Database
 
-**Database Management System:** PostgreSQL
+**Database Used:** PostgreSQL
 
-### Database Schema
+---
+
+## How to Create the Database
+
+Open **pgAdmin** or the **psql terminal**, then execute the following commands:
 
 ```sql
+CREATE DATABASE game_project;
+
 CREATE TABLE players (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -46,44 +55,31 @@ CREATE TABLE players (
     draws INT DEFAULT 0,
     score INT DEFAULT 0
 );
+
+INSERT INTO players (username, password)
+VALUES
+('student1', '12345'),
+('student2', '12345'),
+('student3', '12345'),
+('student4', '12345'),
+('student5', '12345');
 ```
 
-### Scoring System
+Or simply execute the SQL file located in:
 
-| Result | Score |
-| ------ | ----: |
-| Win    |   +10 |
-| Draw   |    +3 |
-| Lose   |    +0 |
+```text
+database/schema.sql
+```
 
 ---
 
-## How to Create the Database
+# How to Run
 
-1. Open PostgreSQL.
-2. Create a database named:
-
-```sql
-CREATE DATABASE game_project;
-```
-
-3. Open the newly created database.
-4. Execute the SQL statements in `database/schema.sql`.
-5. Insert sample player data if necessary.
-
----
-
-## How to Run the Program
-
-### 1. Configure Database
-
-Open:
-
-```
-DatabaseManager.java
-```
-
-Configure the connection:
+1. Make sure PostgreSQL is running.
+2. Create the database using the SQL script above.
+3. Add the PostgreSQL JDBC Driver to your Java project.
+4. Open `DatabaseManager.java`.
+5. Configure the following values:
 
 ```java
 private static final String URL = "jdbc:postgresql://localhost:5432/game_project";
@@ -91,176 +87,84 @@ private static final String USER = "postgres";
 private static final String PASSWORD = "your_password";
 ```
 
----
-
-### 2. Add PostgreSQL JDBC Driver
-
-Add the PostgreSQL JDBC Driver to the project libraries.
-
----
-
-### 3. Compile and Run
-
-Run:
-
-```
-Main.java
-```
-
-The Login Window will appear.
-
----
-
-### 4. Login
-
-Use one of the existing accounts stored in the database.
+6. Compile and run `Main.java`.
+7. Login using one of the available accounts.
 
 Example:
 
-```
-Username : student1
-Password : 12345
-```
+Username: **student1**
+
+Password: **12345**
 
 ---
 
-## Class Explanation
+# Class Explanation
 
-### Main.java
-
-The entry point of the application. It initializes and displays the Login Window.
-
-### DatabaseManager.java
-
-Handles the JDBC connection to the PostgreSQL database.
-
-### Player.java
-
-Represents the player model containing player information such as username, wins, losses, draws, and score.
-
-### PlayerService.java
-
-Performs database operations including:
-
-* User authentication
-* Updating player statistics
-* Retrieving Top 5 scorers
-
-### GameLogic.java
-
-Contains all game rules including:
-
-* Board initialization
-* Move validation
-* Winner detection
-* Draw detection
-* Computer move generation
-
-### LoginFrame.java
-
-Provides the login interface and validates user credentials.
-
-### MainMenuFrame.java
-
-Displays the application's main menu and allows navigation to other windows.
-
-### GameFrame.java
-
-Contains the Tic-Tac-Toe game board and controls the gameplay.
-
-### StatisticsFrame.java
-
-Displays the current player's statistics retrieved from the database.
-
-### TopScorersFrame.java
-
-Displays the Top 5 players using a JTable sorted by score and number of wins.
+| Class               | Responsibility                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Main**            | Entry point of the application that opens the Login Window.                                                            |
+| **DatabaseManager** | Manages JDBC connection to the PostgreSQL database.                                                                    |
+| **Player**          | Model class that stores player information including username, wins, losses, draws, and score.                         |
+| **PlayerService**   | Handles login authentication, updates player statistics, and retrieves the Top 5 scorers from the database.            |
+| **GameLogic**       | Implements the Tic-Tac-Toe game rules including move validation, winner detection, draw detection, and computer moves. |
+| **LoginFrame**      | Swing interface for user login using username and password.                                                            |
+| **MainMenuFrame**   | Main menu displayed after successful login.                                                                            |
+| **GameFrame**       | Swing window containing the Tic-Tac-Toe game board.                                                                    |
+| **StatisticsFrame** | Displays the current player's statistics.                                                                              |
+| **TopScorersFrame** | Displays the Top 5 players using JTable.                                                                               |
 
 ---
 
-## Screenshots
+# Score Calculation
 
-Add screenshots of the application here.
-
-### Login Window
-
-*(Insert login screenshot)*
-
-### Main Menu
-
-*(Insert main menu screenshot)*
-
-### Game Window
-
-*(Insert game screenshot)*
-
-### Statistics Window
-
-*(Insert statistics screenshot)*
-
-### Top 5 Scorers Window
-
-*(Insert leaderboard screenshot)*
+| Result | Score Change |
+| ------ | ------------ |
+| Win    | +10 points   |
+| Draw   | +3 points    |
+| Lose   | +0 points    |
 
 ---
 
-## GitHub Repository
+# Screenshots
+
+## Login
+
+| Login   | Login Success | Login Failed | Register |
+| ------- | ------------- | ------------ | -------- |
+|  | *image*       | *image*      | *image*  |
+
+---
+
+## Main Menu & Game
+
+| Main Menu | Start Game |
+| --------- | ---------- |
+| *image*   | *image*    |
+
+---
+
+## Game Result
+
+| Win     | Lose    | Draw    |
+| ------- | ------- | ------- |
+|         | *image* | *image* |
+
+---
+
+## Statistics & Leaderboard
+
+| My Statistics | Top 5 Scorers |
+| ------------- | ------------- |
+| *image*       | *image*       |
+
+---
+
+# GitHub Repository
 
 https://github.com/fathiyahcodes26/Tictactoe
 
 ---
 
-## Video Demonstration
+# YouTube Video
 
-YouTube Link:
-
-*(Insert YouTube URL here)*
-
----
-
-## Technologies Used
-
-* Java
-* Java Swing
-* PostgreSQL
-* JDBC
-* SQL
-* Object-Oriented Programming (OOP)
-
----
-
-## Project Structure
-
-```
-student-swing-game-project
-│
-├── src
-│   ├── Main.java
-│   ├── DatabaseManager.java
-│   ├── Player.java
-│   ├── PlayerService.java
-│   ├── GameLogic.java
-│   ├── LoginFrame.java
-│   ├── MainMenuFrame.java
-│   ├── GameFrame.java
-│   ├── StatisticsFrame.java
-│   └── TopScorersFrame.java
-│
-├── database
-│   └── schema.sql
-│
-├── screenshots
-│   ├── login-window.png
-│   ├── game-window.png
-│   ├── statistics-window.png
-│   ├── game-window.png
-│   └── top-scorers-window.png
-│
-└── README.md
-```
-
----
-
-## Conclusion
-
-This project demonstrates the implementation of Java programming fundamentals through a complete desktop application. It integrates GUI development using Java Swing, database connectivity with JDBC, simple Object-Oriented Programming, SQL operations, and game logic implementation. The application fulfills the project requirements by providing login authentication, gameplay, statistics tracking, and a leaderboard using a single database table.
+*(Insert your YouTube demonstration link here.)*
