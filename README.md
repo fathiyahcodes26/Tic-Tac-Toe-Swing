@@ -129,9 +129,9 @@ Password: **12345**
 
 ## Login
 
-| Login   | Login Success | Login Failed | Register |
-| ------- | ------------- | ------------ | -------- |
-|  | *image*       | *image*      | *image*  |
+| Login   | Login Success | Login Failed | 
+| ------- | ------------- | ------------ | 
+|  | *image*       | *image*      | 
 
 ---
 
@@ -155,7 +155,8 @@ Password: **12345**
 
 | My Statistics | Top 5 Scorers |
 | ------------- | ------------- |
-| *image*       | *image*       |
+| *image*       | <img width="607" height="485" alt="image" src="https://github.com/user-attachments/assets/c35bf584-e423-435a-83b1-0a6e35e984b1" />
+      |
 
 ---
 
