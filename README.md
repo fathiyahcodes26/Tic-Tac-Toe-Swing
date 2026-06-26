@@ -131,7 +131,10 @@ Password: **12345**
 
 | Login   | Login Success | Login Failed | 
 | ------- | ------------- | ------------ | 
-|  | *image*       | *image*      | 
+| <img width="536" height="615" alt="image" src="https://github.com/user-attachments/assets/931c2ea8-18a9-4e6e-9de3-5fccdf1024e7" />
+ |<img width="328" height="146" alt="image" src="https://github.com/user-attachments/assets/ab7f769a-2e2f-4bb2-a76a-caf4be49b786" />
+ | <img width="332" height="145" alt="image" src="https://github.com/user-attachments/assets/ecf23465-b130-406b-b3e3-be9344016878" />
+  | 
 
 ---
 
@@ -139,7 +142,9 @@ Password: **12345**
 
 | Main Menu | Start Game |
 | --------- | ---------- |
-| *image*   | *image*    |
+|<img width="542" height="557" alt="image" src="https://github.com/user-attachments/assets/d0a0164d-b0f7-4258-8044-5b6ddde4d688" />
+|<img width="631" height="767" alt="image" src="https://github.com/user-attachments/assets/211b3d67-316c-47eb-a240-4bf7428e40d4" />
+ |
 
 ---
 
@@ -147,7 +152,10 @@ Password: **12345**
 
 | Win     | Lose    | Draw    |
 | ------- | ------- | ------- |
-|         | *image* | *image* |
+|    <img width="322" height="145" alt="image" src="https://github.com/user-attachments/assets/e1aefa6f-c9e2-45b7-9474-0b685fe0bc13" />
+     | <img width="323" height="150" alt="image" src="https://github.com/user-attachments/assets/a118be4a-d244-4be7-8a4d-752ba109f4b9" />
+ | <img width="327" height="142" alt="image" src="https://github.com/user-attachments/assets/4f099edf-ef3c-4cc7-a607-2b820810b3f5" />
+ |
 
 ---
 
@@ -155,7 +163,8 @@ Password: **12345**
 
 | My Statistics | Top 5 Scorers |
 | ------------- | ------------- |
-| *image*       | <img width="607" height="485" alt="image" src="https://github.com/user-attachments/assets/c35bf584-e423-435a-83b1-0a6e35e984b1" />
+| <img width="540" height="611" alt="image" src="https://github.com/user-attachments/assets/3f056b05-0386-447b-8c5f-73ffbc67582d" />
+     | <img width="607" height="485" alt="image" src="https://github.com/user-attachments/assets/c35bf584-e423-435a-83b1-0a6e35e984b1" />
       |
 
 ---
